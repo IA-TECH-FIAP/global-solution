@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGlow - Painel de Prevenção e Contingência de Desastres</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background overlay para efeito estrelas e profundidade espacial -->
+    <div class="stars-overlay"></div>
+    
+    <header class="app-header">
+        <div class="header-logo">
+            <span class="logo-glow"></span>
+            <h1>EcoGlow</h1>
+            <span class="badge badge-accent">POC Orbital V1.0</span>
+        </div>
+        <div class="header-status">
+            <div class="status-item">
+                <span class="status-dot online"></span>
+                <span>Gateway LoRaWAN: Ativo</span>
+            </div>
+            <div class="status-item">
+                <span class="status-dot online"></span>
+                <span>Satélite Sentinel: Conectado</span>
+            </div>
+            <button id="resetSimulationBtn" class="btn btn-secondary">Resetar Simulação</button>
+        </div>
+    </header>
+
+    <main class="app-grid">
+        <!-- Mapa de Monitoramento de Solo (30 Sensores) -->
+        <section class="card grid-span-4" id="map-section">
+            <div class="card-header">
+                <h2>📍 Sensoriamento Terrestre (1.000 Hectares)</h2>
+                <div class="card-actions">
+                    <span class="legend-item"><span class="legend-dot normal"></span> Normal</span>
+                    <span class="legend-item"><span class="legend-dot emergency"></span> Emergência (Edge)</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="map"></div>
+            </div>
+        </section>
+
+        <!-- Visão Computacional Orbital -->
+        <section class="card grid-span-2" id="satellite-section">
+            <div class="card-header">
+                <h2>🛰️ Visão Computacional Orbital</h2>
+                <button id="runCvBtn" class="btn btn-primary btn-sm">Processar Imagem</button>
+            </div>
+            <div class="card-body satellite-body">
+                <div class="image-container">
+                    <img id="satelliteImage" src="processed_satellite.jpg" alt="Visão Orbital Processada">
+                    <div class="scan-overlay"></div>
+                </div>
+                <div class="detection-list" id="detectionsList">
+                    <p class="placeholder-text">Processando dados orbitais...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gráficos de Telemetria Histórica -->
+        <section class="card grid-span-3" id="telemetry-section">
+            <div class="card-header">
+                <h2>📊 Histórico Microclimático da Fazenda</h2>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="telemetryChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Copilot Contingência RAG -->
+        <section class="card grid-span-3" id="copilot-section">
+            <div class="card-header">
+                <h2>🤖 EcoGlow Copilot - RAG & Contingência</h2>
+            </div>
+            <div class="card-body chat-body">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message system-message">
+                        Olá! Sou o EcoGlow Copilot. Quando houver uma emergência ambiental, utilizarei RAG para consultar as diretrizes oficiais do IBAMA e gerar planos de fuga e contenção customizados.
+                    </div>
+                </div>
+                <div class="chat-controls">
+                    <div class="copilot-inputs">
+                        <label for="copilotSensorSelect">Nó Foco:</label>
+                        <select id="copilotSensorSelect">
+                            <option value="ESP32_N01">ESP32_N01 (Sensor Físico)</option>
+                        </select>
+                        <label for="copilotWindSelect">Vento:</label>
+                        <select id="copilotWindSelect">
+                            <option value="Leste">Leste (Sotavento p/ Oeste)</option>
+                            <option value="Oeste">Oeste (Sotavento p/ Leste)</option>
+                            <option value="Norte">Norte (Sotavento p/ Sul)</option>
+                            <option value="Sul">Sul (Sotavento p/ Norte)</option>
+                        </select>
+                    </div>
+                    <form id="chatForm" class="chat-form">
+                        <input type="text" id="queryInput" placeholder="Pergunte ao Copilot (ex: Como agir em rota de evacuação?)..." required>
+                        <button type="submit" class="btn btn-accent">Consultar RAG</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Notificações Flutuantes (Toast) -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Leaflet Map JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
