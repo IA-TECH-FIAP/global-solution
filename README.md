@@ -1,71 +1,109 @@
-# FIAP - Faculdade de Informática e Administração Paulista
+# EcoGlow - Plataforma Inteligente de Prevenção e Contingência de Desastres Rurais
 
 <p align="center">
-<a href= "https://www.fiap.com.br/"><img src="assets/logo-fiap.png" alt="FIAP - Faculdade de Informática e Admnistração Paulista" border="0" width=40% height=40%></a>
+  <img src="../../assets/logo-fiap.png" alt="FIAP Logo" width="40%">
 </p>
 
-<br>
+## 👨‍🎓 Integrantes:
+| Nome | RM |
+|------|-----|
+| Giulia Bugatti Fonseca | 562675 |
+| Mahmod Ahmad Issa | 561426 |
+| Matheus Cardoso Oliveira Lima | 565844 |
+| Silas Fernandes de Souza Fonseca | 564246 |
 
-# 🎓 Graduação ON em Inteligência Artificial  
-## 📚 Repositório Oficial de Projetos e Trabalhos Acadêmicos
-
----
-
-## 👩🏻‍💻 Sobre este Repositório
-
-Este repositório tem como objetivo centralizar **todos os trabalhos, projetos, desafios, sprints, entregas e experimentos desenvolvidos durante a Graduação ON em Inteligência Artificial da FIAP**.
-
-Aqui está documentada minha evolução técnica, analítica e estratégica ao longo do curso, contemplando:
-
-- Projetos acadêmicos (PBLs, Global Solutions, Challenges)
-- Implementações práticas de IA e Machine Learning
-- Modelagem de dados e engenharia de dados
-- Experimentos com Deep Learning
-- Aplicações com IA Generativa
-- Integrações com IoT e sensores
-- Documentações técnicas completas
-- Arquiteturas de solução
-- Estudos dirigidos e explorações técnicas
-- ...
-
-Este repositório funciona como um **portfólio técnico estruturado**, evidenciando domínio progressivo das competências exigidas na formação.
+## 👩‍🏫 Professores:
+### Tutor(a)
+- [Caique Nonato da Silva Bezerra](https://www.linkedin.com/in/caique-nonato/)
+### Coordenador(a)
+- [André Godoi Chiovato](https://www.linkedin.com/in/andregodoichiovato/)
 
 ---
 
-## 🎯 Objetivo
+## 📜 Descrição do Projeto
 
-Organizar e versionar todo o fluxo de desenvolvimento acadêmico, garantindo:
+O **EcoGlow** é uma plataforma inteligente e descentralizada projetada para a antecipação, detecção e resposta a desastres ambientais, focando primariamente em queimadas e desmatamento. O principal diferencial da plataforma é a **reconciliação de dados em duas escalas**:
+1. **Escala Micro (Solo)**: Capturada localmente através de uma malha inteligente de 30 nós sensores simulando o hardware ESP32. Estes nós operam com lógica de *Edge Computing*, processando a temperatura e a umidade do ar na ponta para disparar alertas instantâneos de emergência e aumentar a frequência de transmissão em tempo real via protocolo simulado LoRaWAN.
+2. **Escala Macro (Orbital)**: Capturada por imagens aéreas orbitais de satélites ( Sentinel / Landsat) processadas em tempo real com **Visão Computacional (OpenCV)** para detecção automática de plumas de fumaça, calor em infravermelho e cicatrizes de desmatamento recente.
 
-- 📌 Organização e rastreabilidade das entregas
-- 📌 Evolução contínua do conhecimento
-- 📌 Documentação clara e técnica
-- 📌 Reprodutibilidade dos experimentos
-- 📌 Portfólio profissional estruturado
+O EcoGlow atua como um **orquestrador de contingência**. Quando o satélite e um sensor de solo detectam anomalias térmicas na mesma coordenada geográfica, o sistema consolida o alerta máximo e aciona o **EcoGlow Copilot**. Esse assistente inteligente baseado em **RAG (Retrieval-Augmented Generation)** realiza buscas semânticas em manuais técnicos oficiais (como diretrizes de combate a incêndio do IBAMA e planos de evacuação rural) para gerar um plano de ação personalizado em formato Markdown (ex: rotas de fuga contra a direção do vento, posicionamento de caminhões-pipa e diretrizes de proteção individual).
 
 ---
 
-## 🧠 Estrutura Macro do Repositório
+## 📁 Estrutura de Pastas
 
-```bash
-📂 FIAP-GRAD-ON-IA
-│
-├── 📂 ANO1
-│   ├── 📂 FASE1
-│   │   ├── 📂 NOME-DA-ATIVIDADE1
-│   │   ├── 📂 NOME-DA-ATIVIDADE2
-│   │   ├── 📂 NOME-DA-ATIVIDADE3
-│   ├── 📂 FASE2
-│   ├── 📂 FASE3
-│   └── 📂 ...
-│
-├── 📂 ANO2
-│   ├── 📂 FASE1
-│   ├── 📂 FASE2
-│   ├── 📂 FASE3
-│   └── 📂 ...
-│
-└── README.md
-```
+A organização dos arquivos e códigos no repositório segue a seguinte divisão:
+
+- <b>data/</b>: Contém arquivos de dados estruturados gerados e consumidos pelos módulos.
+  - `manuais/ibama_diretrizes.txt`: Base de conhecimento contendo as diretrizes do IBAMA para RAG.
+  - `sensors_telemetry.json`: Telemetria em tempo real dos 30 sensores terrestres.
+  - `satellite_detections.json`: Histórico de focos de incêndio detectados via OpenCV.
+  - `satelite_data.json`: Alertas espaciais coletados por automação/scraping.
+- <b>src/</b>: Todo o código fonte e lógica de software do EcoGlow.
+  - `public/`: Interface web do Dashboard (HTML, CSS customizado, Javascript dinâmico com Leaflet e Chart.js).
+  - `iot_simulator.py`: Simulador da rede de sensores terrestres ESP32 e lógica de Edge Computing.
+  - `vision_satellite.py`: Pipeline de Visão Computacional OpenCV para detecção de focos de calor.
+  - `news_scraper.py`: Script de scraping para coleta de alertas espaciais.
+  - `rag_contingency.py`: Motor de buscas RAG e geração de planos de evacuação/Copilot.
+  - `server.js`: Servidor backend Node.js (Express & WebSockets) integrando APIs e Python.
+- <b>README.md</b>: Este guia explicativo do projeto.
+
+---
+
+## 🔧 Como Executar o Projeto
+
+Siga o passo a passo abaixo para executar o EcoGlow localmente em sua máquina:
+
+### Pré-requisitos
+- Node.js (v18 ou superior instalado)
+- Python 3.10 ou superior
+
+### Passo a Passo de Execução
+
+1. **Clone o repositório e acesse a pasta do projeto:**
+   ```bash
+   cd 2TIAO/Global-Solution
+   ```
+
+2. **Crie e ative o ambiente virtual do Python (recomendado):**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Instale as dependências de Python:**
+   ```bash
+   pip install opencv-python numpy
+   ```
+
+4. **Instale as dependências do Node.js:**
+   ```bash
+   cd src
+   npm install
+   ```
+
+5. **Inicie o Simulador de Sensores IoT (deixe rodando em um terminal):**
+   ```bash
+   # Certifique-se de estar na pasta do projeto e com o venv ativo
+   python3 src/iot_simulator.py
+   ```
+
+6. **Inicie o Servidor Central do EcoGlow (em outro terminal):**
+   ```bash
+   # Na pasta 2TIAO/Global-Solution/src/
+   npm run dev
+   ```
+
+7. **Acesse o Dashboard:**
+   Abra o seu navegador e acesse `http://localhost:3000`.
+
+---
+
+## 📎 Links e Observações
+
+- **Vídeo Demonstrativo**: *[Link do Vídeo no YouTube - Não Listado]* (Adicionar link após postagem).
+- **Competição e Pódio**: **QUERO CONCORRER** (Opção de participação ativada).
+- **Decisões Técnicas**: A escolha de simular redes LoRaWAN é fundamental, visto que a comunicação por Wi-Fi ou redes móveis convencionais em áreas agrícolas remotas é inviável tecnicamente.
 
 ---
 
