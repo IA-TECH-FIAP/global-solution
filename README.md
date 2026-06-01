@@ -1,7 +1,7 @@
 # EcoGlow - Plataforma Inteligente de Prevenção e Contingência de Desastres Rurais
 
 <p align="center">
-  <img src="../../assets/logo-fiap.png" alt="FIAP Logo" width="40%">
+  <img src="./assets/logo-fiap.png" alt="FIAP Logo" width="40%">
 </p>
 
 ## 👨‍🎓 Integrantes:
