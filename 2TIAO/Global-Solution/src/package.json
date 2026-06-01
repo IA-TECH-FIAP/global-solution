@@ -1,0 +1,14 @@
+{
+  "name": "ecoglow-backend",
+  "version": "1.0.0",
+  "description": "Backend central do EcoGlow para a Global Solution FIAP",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.17.0"
+  }
+}

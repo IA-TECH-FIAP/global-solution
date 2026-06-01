@@ -1,0 +1,30 @@
+DIRETRIZES OFICIAIS DO IBAMA PARA COMBATE A INCÊNDIOS FLORESTAIS E PREVENÇÃO DE QUEIMADAS
+
+[SEÇÃO 1 - PROCEDIMENTO GERAL DE COMBATE]
+1.1 Identificação e Avaliação do Foco:
+Ao detectar fumaça ou calor anômalo, a prioridade absoluta é identificar a direção do vento e a velocidade de propagação do fogo.
+- Foco Inicial (baixo risco): Combate direto com abafadores, bombas costais de água e terra se o fogo estiver com chamas abaixo de 0.5 metros.
+- Incêndio Médio (médio risco): Uso de aceiros preventivos (faixas de terra sem vegetação) com largura mínima de 3 metros. Mobilizar brigada de incêndio local imediatamente.
+- Incêndio Crítico (alto risco - emergência): Chamas acima de 2 metros com ventos fortes. Interromper combate direto imediatamente. Recuar para zonas de segurança e acionar o Corpo de Bombeiros (193).
+
+[SEÇÃO 2 - EVACUAÇÃO E ROTAS DE FUGA RURAIS]
+2.1 Protocolo de Evacuação de Emergência:
+Se o alerta estiver em nível máximo (EMERGENCY) e houver proximidade de instalações ou residências:
+- Zonas de Risco Extremo: Quadrantes secos a favor do vento (sotavento). O vento empurra as chamas e os gases tóxicos.
+- Rotas de Fuga Recomendadas: Sempre evacuar na direção perpendicular ao vento (travessia lateral) ou contra o vento (se houver via livre limpa). Nunca correr ladeira acima se o fogo estiver subindo a encosta, pois o fogo se propaga mais rápido em subidas devido à convecção térmica.
+- Direção do Vento Leste: Se o vento estiver soprando do leste (indo para o oeste), a rota de fuga deve ser preferencialmente para o Sul ou para o Norte. Evitar deslocamentos para o oeste (direção da propagação das chamas).
+- Direção do Vento Oeste: Se o vento estiver soprando do oeste (indo para o leste), a rota de fuga deve ser preferencialmente para o Norte ou para o Sul. Evitar deslocamentos para o leste.
+- Direção do Vento Norte: Se o vento estiver soprando do norte (indo para o sul), a rota de fuga deve ser para o Leste ou para o Oeste. Evitar deslocamentos para o sul.
+- Direção do Vento Sul: Se o vento estiver soprando do sul (indo para o norte), a rota de fuga deve ser para o Oeste ou para o Leste. Evitar deslocamentos para o norte.
+
+[SEÇÃO 3 - RECURSOS HÍDRICOS E LOGÍSTICA]
+3.1 Pontos de Abastecimento de Água:
+- Caminhões-pipa devem se posicionar estrategicamente próximos a fontes de água naturais ou reservatórios artificiais (lagos, açudes, rios).
+- Manter o motor de captação de água testado e abastecido com combustível.
+- Distância mínima de segurança: Equipamentos de abastecimento e veículos devem estar a pelo menos 100 metros da linha de fogo ativa.
+
+[SEÇÃO 4 - SEGURANÇA PESSOAL DO BRIGADISTA]
+4.1 Equipamento de Proteção Individual (EPI):
+Todo brigadista deve portar obrigatoriamente: capacete com jugular, óculos de proteção contra fumaça, máscara com filtro de carvão ativado ou lenço úmido, camisa/calça de algodão grosso ou antichama (Nomex), luvas de couro com cano longo e botas de segurança com solado antiderrapante.
+4.2 Hidratação e Exaustão:
+Beber pelo menos 500ml de água a cada 30 minutos de combate ativo. Em caso de tontura, dor de cabeça ou exaustão, o brigadista deve se afastar imediatamente para a zona fria e receber atendimento de primeiros socorros.

@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Local Data Cache (Simuladores e Deteções dinâmicas)
+data/sensors_telemetry.json
+data/satellite_detections.json
+data/satelite_data.json
+data/fire_trigger.json
+
+# Sistema
+.DS_Store
