@@ -150,13 +150,13 @@ export default function App() {
             </div>
           </section>
 
-          <section className="card grid-span-3">
+          <div className="grid-span-3">
             <CopilotChat 
               sensors={sensors} 
               selectedSensorId={selectedSensorId} 
               onSelectSensor={setSelectedSensorId} 
             />
-          </section>
+          </div>
         </main>
       ) : (
         // VISUALIZAÇÃO MOBILE (ABAS RESPONSIVAS DENTRO DE FRAME DE DISPOSITIVO)
