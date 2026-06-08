@@ -199,19 +199,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.custom-sensor-icon div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     color: #fff;
     font-size: 9px;
     font-weight: bold;
     border: 2px solid white;
+    box-sizing: border-box;
 }
 
-.sensor-normal {
+.sensor-normal div {
     background-color: var(--color-success);
     box-shadow: 0 0 10px var(--color-success);
 }
 
-.sensor-emergency {
+.sensor-emergency div {
     background-color: var(--color-danger);
     box-shadow: 0 0 15px var(--color-danger);
     animation: pulse-danger 1s infinite alternate;
