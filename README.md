@@ -60,9 +60,9 @@ Siga o passo a passo abaixo para executar o EcoGlow localmente em sua máquina:
 
 ### Passo a Passo de Execução
 
-1. **Clone o repositório e acesse a pasta do projeto:**
+1. **Clone o repositório e acesse a pasta raiz do projeto:**
    ```bash
-   cd 2TIAO/Global-Solution
+   cd global-solution
    ```
 
 2. **Crie e ative o ambiente virtual do Python (recomendado):**
@@ -84,13 +84,13 @@ Siga o passo a passo abaixo para executar o EcoGlow localmente em sua máquina:
 
 5. **Inicie o Simulador de Sensores IoT (deixe rodando em um terminal):**
    ```bash
-   # Certifique-se de estar na pasta do projeto e com o venv ativo
+   # Execute a partir da raiz do projeto com o venv ativo
    python3 src/iot_simulator.py
    ```
 
 6. **Inicie o Servidor Central do EcoGlow (em outro terminal):**
    ```bash
-   # Na pasta 2TIAO/Global-Solution/src/
+   # Na pasta src/ do projeto
    npm run dev
    ```
 
