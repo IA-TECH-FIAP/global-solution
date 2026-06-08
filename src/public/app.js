@@ -304,6 +304,28 @@ resetBtn.addEventListener('click', () => {
         });
 });
 
+// Controle de Maximização do Chat (Modal)
+const maximizeChatBtn = document.getElementById('maximizeChatBtn');
+const copilotSection = document.getElementById('copilot-section');
+const modalBackdrop = document.getElementById('modalBackdrop');
+
+if (maximizeChatBtn && copilotSection && modalBackdrop) {
+    maximizeChatBtn.addEventListener('click', () => {
+        const isMaximized = copilotSection.classList.toggle('maximized');
+        modalBackdrop.classList.toggle('active', isMaximized);
+        maximizeChatBtn.textContent = isMaximized ? '🗗' : '🔲';
+        maximizeChatBtn.title = isMaximized ? 'Minimizar Chat' : 'Maximizar Chat';
+    });
+
+    // Fechar modal ao clicar fora (no backdrop)
+    modalBackdrop.addEventListener('click', () => {
+        copilotSection.classList.remove('maximized');
+        modalBackdrop.classList.remove('active');
+        maximizeChatBtn.textContent = '🔲';
+        maximizeChatBtn.title = 'Maximizar Chat';
+    });
+}
+
 // Inicialização
 window.addEventListener('DOMContentLoaded', () => {
     initCharts();

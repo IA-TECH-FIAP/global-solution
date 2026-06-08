@@ -86,6 +86,7 @@
         <section class="card grid-span-3" id="copilot-section">
             <div class="card-header">
                 <h2>🤖 EcoGlow Copilot - RAG & Contingência</h2>
+                <button id="maximizeChatBtn" class="btn btn-secondary btn-sm" style="padding: 0.2rem 0.5rem; font-size: 0.9rem;" title="Maximizar Chat">🔲</button>
             </div>
             <div class="card-body chat-body">
                 <div class="chat-messages" id="chatMessages">
@@ -115,6 +116,9 @@
             </div>
         </section>
     </main>
+
+    <!-- Backdrop para o chat maximizado -->
+    <div id="modalBackdrop" class="modal-backdrop"></div>
 
     <!-- Notificações Flutuantes (Toast) -->
     <div id="toastContainer" class="toast-container"></div>

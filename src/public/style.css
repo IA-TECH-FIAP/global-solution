@@ -482,6 +482,52 @@ body {
     to { transform: translateX(0); opacity: 1; }
 }
 
+/* Modal do Chat Maximizado */
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 9998;
+    transition: all 0.3s ease;
+}
+
+.modal-backdrop.active {
+    display: block;
+}
+
+#copilot-section.maximized {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 900px;
+    height: 80vh;
+    z-index: 9999;
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.45);
+    background: rgba(10, 14, 26, 0.96);
+    border: 2px solid var(--color-accent);
+    animation: modal-zoom 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#copilot-section.maximized .chat-body {
+    height: calc(80vh - 75px);
+}
+
+#copilot-section.maximized .chat-messages {
+    height: calc(80vh - 180px);
+}
+
+@keyframes modal-zoom {
+    from { transform: translate(-50%, -50%) scale(0.95); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
 @media (max-width: 1200px) {
     .app-grid {
         grid-template-columns: 1fr;
