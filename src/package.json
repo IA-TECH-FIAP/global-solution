@@ -1,14 +1,26 @@
 {
-  "name": "ecoglow-backend",
+  "name": "ecoglow-platform",
   "version": "1.0.0",
-  "description": "Backend central do EcoGlow para a Global Solution FIAP",
+  "description": "Plataforma EcoGlow - React PWA & RAG Copilot",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "backend": "node server.js",
+    "frontend:dev": "vite",
+    "build": "vite build",
     "dev": "node server.js"
   },
   "dependencies": {
     "express": "^4.19.2",
-    "ws": "^8.17.0"
+    "ws": "^8.17.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "marked": "^12.0.2",
+    "lucide-react": "^0.395.0"
+  },
+  "devDependencies": {
+    "vite": "^5.2.11",
+    "@vitejs/plugin-react": "^4.3.0",
+    "vite-plugin-pwa": "^0.20.0"
   }
 }

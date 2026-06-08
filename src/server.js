@@ -22,8 +22,28 @@ const PYTHON_PATH = fs.existsSync(path.join(__dirname, '..', 'venv', 'bin', 'pyt
   ? path.join(__dirname, '..', 'venv', 'bin', 'python3')
   : 'python3';
 
+const DIST_DIR = path.join(__dirname, 'dist');
+
 app.use(express.json());
-app.use(express.static(PUBLIC_DIR));
+// Servir arquivos do build do React (/dist) se existirem, caso contrário servir a pasta legada /public
+if (fs.existsSync(DIST_DIR)) {
+  app.use(express.static(DIST_DIR));
+} else {
+  app.use(express.static(PUBLIC_DIR));
+}
+
+// Rota específica para servir a imagem dinâmica processada por OpenCV
+app.get('/processed_satellite.jpg', (req, res) => {
+  const customPublicPath = path.join(PUBLIC_DIR, 'processed_satellite.jpg');
+  const customDistPath = path.join(DIST_DIR, 'processed_satellite.jpg');
+  
+  if (fs.existsSync(customDistPath)) {
+    return res.sendFile(customDistPath);
+  } else if (fs.existsSync(customPublicPath)) {
+    return res.sendFile(customPublicPath);
+  }
+  return res.status(404).send('Imagem não processada ainda.');
+});
 
 // Endpoint: Telemetria atualizada dos 30 sensores
 app.get('/api/telemetry', (req, res) => {
