@@ -42,10 +42,10 @@ A organização dos arquivos e códigos no repositório segue a seguinte divisã
 - <b>src/</b>: Todo o código fonte e lógica de software do EcoGlow.
   - `public/`: Interface web do Dashboard (HTML, CSS customizado, Javascript dinâmico com Leaflet e Chart.js).
   - `iot_simulator.py`: Simulador da rede de sensores terrestres ESP32 e lógica de Edge Computing.
-  - `vision_satellite.py`: Pipeline de Visão Computacional OpenCV para detecção de focos de calor.
-  - `news_scraper.py`: Script de scraping para coleta de alertas espaciais.
-  - `rag_contingency.py`: Motor de buscas RAG e geração de planos de evacuação/Copilot.
-  - `server.js`: Servidor backend Node.js (Express & WebSockets) integrando APIs e Python.
+  - `vision_satellite.py`: Visão Computacional em duas etapas — proposta de regiões por segmentação OpenCV (HSV) e **classificação HOG + SVM** (Cap11) para confirmar focos e descartar falsos positivos.
+  - `news_scraper.py`: Scraping **ético** (Cap02) — inspeção do `robots.txt`, travessia de DOM com **seletores CSS (BeautifulSoup)**, rate limiting com backoff exponencial, verificação TLS ativa e log de auditoria (`data/scraper_audit.log`).
+  - `rag_contingency.py`: Copilot **RAG** real — recuperação por **similaridade de cosseno sobre vetores TF-IDF** e geração via **LLM** (Anthropic/OpenAI) com chat template `system/user`, e fallback determinístico.
+  - `server.js`: Backend Node.js (Express & WebSockets). Faz a **reconciliação de duas escalas** (Haversine) cruzando detecções orbitais com sensores de solo em EMERGENCY e consolidando o alerta MÁXIMO (`GET /api/reconciliation`, também emitido via WebSocket).
 - <b>README.md</b>: Este guia explicativo do projeto.
 
 ---
@@ -73,7 +73,13 @@ Siga o passo a passo abaixo para executar o EcoGlow localmente em sua máquina:
 
 3. **Instale as dependências de Python:**
    ```bash
-   pip install opencv-python numpy
+   pip install -r requirements.txt
+   ```
+   > Inclui OpenCV/NumPy (visão), scikit-learn/scikit-image (classificador HOG+SVM e busca vetorial do RAG) e requests/BeautifulSoup/lxml (scraping ético).
+
+   *(Opcional)* Para geração de texto via LLM real no Copilot, defina uma chave de API antes de iniciar o servidor — sem ela, o RAG usa a camada de fallback determinística:
+   ```bash
+   export ANTHROPIC_API_KEY="sua-chave"   # ou OPENAI_API_KEY
    ```
 
 4. **Instale as dependências do Node.js:**

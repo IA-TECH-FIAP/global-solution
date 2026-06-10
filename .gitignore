@@ -14,6 +14,8 @@ data/sensors_telemetry.json
 data/satellite_detections.json
 data/satelite_data.json
 data/fire_trigger.json
+data/scraper_audit.log
+data/fire_hog_svm.joblib
 
 # Sistema
 .DS_Store

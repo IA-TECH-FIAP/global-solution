@@ -1,0 +1,14 @@
+# EcoGlow - dependências Python
+# Visão computacional (Cap11) e simulação IoT
+opencv-python>=4.8
+numpy>=1.24
+
+# Machine Learning: classificador HOG + SVM da visão e busca vetorial (cosseno TF-IDF) do RAG
+scikit-learn>=1.3
+scikit-image>=0.21
+joblib>=1.3
+
+# Hiperautomação / Scraping ético (Cap02): DOM + seletores CSS + robots.txt
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=4.9
